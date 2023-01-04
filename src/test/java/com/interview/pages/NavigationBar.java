@@ -1,20 +1,18 @@
 package com.interview.pages;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NavigationBar {
-	WebDriver driver;
+import com.interview.utilities.Driver;
 
-	public NavigationBar(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-		this.driver = driver;
+public class NavigationBar {
+
+	public NavigationBar() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 	@FindBy(xpath = "//nav[@class='navigation']//a[normalize-space()='Kredi']")
@@ -27,13 +25,10 @@ public class NavigationBar {
 	public WebElement ihtiyacKredisi;
 
 	public List<String> getActualCreditList() {
-		List<String> actualCreditSubMenu = new ArrayList();
+		List<String> actualCreditSubMenu = new ArrayList<>();
 		for (int i = 1; i < krediTipi.size(); i++) {
 			actualCreditSubMenu.add(krediTipi.get(i).getText());
 		}
 		return actualCreditSubMenu;
 	}
-
-	public List<String> expectedKrediList = new ArrayList<String>(Arrays.asList("Ýhtiyaç Kredisi", "Konut Kredisi",
-			"Taþýt Kredisi", "KOBÝ Kredisi", "Kredi Hesaplama Araçlarý"));
 }

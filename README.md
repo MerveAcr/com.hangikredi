@@ -1,9 +1,9 @@
 ## Local Test Env Setup
-- /com.interview/src/test/resources un altindaki testing.xml sayfasindan point edilmis testleri calistirabiliriz.
-- yeni suite, package, class, ve method lari point ederek istedigimiz testleri calistirabiliriz.
-- yeni suite ler olustururak smoke, regression, end to end gibi testlerimizi calistirabiliriz.
-- suite tagg inin icersinde paralel ve thread-count keywrod larini kullanrak paralel execution yapabiliriz.
-- thread-count un degeri kac tane webdriver initalize edilicegini gosterir.
+- /com.interview/src/test/resources un altindaki testing.xml sayfasindan point edilmis testleri calistirabiliriz
+- yeni suite, package, class, ve method lari point ederek istedigimiz testleri calistirabiliriz
+- yeni suite ler olusturarak smoke, regression, end to end gibi testlerimizi calistirabiliriz
+- suite tag inin icerisinde paralel ve thread-count keyword lerini kullanarak paralel execution yapabiliriz
+- thread-count un degeri kac tane webdriver initialize edilicegini gosterir.
 
 ## Test Execution
 - /com.interview/src/test/resources klasorune git
@@ -11,16 +11,27 @@
 - Sag tikla
 - Run As e tikla
 - TestNGSuite e tikla 
-
-- testing.xml de point edilen test lerin hepsi calisicaktir.
+- testing.xml de point edilen test lerin hepsi calisacaktir
 
 ##  POM Design Pattern
 - page object class larini com.interview.pages in altinda olusturabiliriz
-- her bir safya/modul icin ayri bir page object olusturmak gerekir
+- her bir sayfa/modul icin ayri bir page object olusturmak gerekir
 - page object class larini page factory design pattern ile develop edersek @FindBy annotation i kullanarak kolayca WebElement lerimizi locate ederbiliriz
 - test lerimizi com.interview.test package inin altina yazabiliriz
 - page object veya test file larimizda kullanicagimiz yardimci methodlari com.interview.utilities package inin altinda olusturabilriz
-- istenilen yeni library/ dependency leri pom.xml sayfasina eklemyi unutmayiniz 
+- istenilen yeni library/ dependency leri pom.xml sayfasina eklemeyi unutmayiniz 
+
+## Test Data
+- test datalarimizi com.interview.test.data package inin altinda olusturunuz
+- key and value cinsinden datalarinizi src/test/resources/test-data klasorunun altina .properties dosya turunden olusturabilirsiniz
+
+## Cross Browser Testing
+- src/test/resources/test-data/configuration.properties dosyasinda calistirilmak istenen tarayiciyi belirleyebiliriz
+- tarayici tipini belirlerken "chrome", "safari", "firefox", "edge" keywordlerini kullaniniz
+
+## Yardimci Methodlar
+- com.interview.utilities package nin altinda HelperMethods classinda yardimci methodlari olusturabiliriz
+- ihtiyac duyuldugu takdirde WebDriver objesini olusturmadan Driver.java classindan cagirabilirsiniz
 
 ## Test Report 
 ##### Html Report
@@ -30,7 +41,9 @@
 	- /src directory de fail olan test lerin screenshot larini test ismi ile gorebilirsiniz 
 
 ## .gitignore
-- localinizde kalmasini istediginiz, jar,test result gibi dosylari .gitignore file ina ekliyerek remote repo nuzu gereksiz dosyalardan koruyabilirisiniz
+- localinizde kalmasini istediginiz, jar,test result gibi dosyalari .gitignore file ina ekleyerek remote repo nuzu gereksiz dosyalardan koruyabilirisiniz
+
+## NOT: PROJEYI INDIRDIKTEN SONRA UPDATE ETMEYI UNUTMAYINIZ
 
 
 

@@ -1,16 +1,15 @@
 package com.interview.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CreditDetails {
-	WebDriver driver;
+import com.interview.utilities.Driver;
 
-	public CreditDetails(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-		this.driver = driver;
+public class CreditDetails {
+
+	public CreditDetails() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 	@FindBy(xpath = "(//dt[normalize-space()='Faiz Oraný']//following-sibling::dd)[1]")

@@ -1,8 +1,14 @@
 package com.interview.utilities;
 
-import org.openqa.selenium.WebDriver;
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.ITestResult;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -15,8 +21,8 @@ public class HelperMethods {
 		return random;
 	}
 
-	public static int checkNetworkStatusCode(WebDriver driver) {
-		RestAssured.baseURI = driver.getCurrentUrl();
+	public static int checkNetworkStatusCode() {
+		RestAssured.baseURI = Driver.getDriver().getCurrentUrl();
 		RequestSpecification httpRequest = RestAssured.given();
 		Response response = httpRequest.get("");
 		return response.getStatusCode();
@@ -25,5 +31,13 @@ public class HelperMethods {
 	public static void selectByValue(WebElement element, String value) {
 		Select dropdown = new Select(element);
 		dropdown.selectByValue(value);
+	}
+
+	public static void takeScreenshot(ITestResult result) throws IOException {
+		if (result.getStatus() == ITestResult.FAILURE) {
+			TakesScreenshot tc = (TakesScreenshot) Driver.getDriver();
+			File src = tc.getScreenshotAs(OutputType.FILE);
+			FileHandler.copy(src, new File(result.getName() + ".png"));
+		}
 	}
 }

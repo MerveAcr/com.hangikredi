@@ -1,16 +1,15 @@
 package com.interview.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CreditSearchEngin {
-	WebDriver driver;
+import com.interview.utilities.Driver;
 
-	public CreditSearchEngin(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-		this.driver = driver;
+public class CreditSearchEngin {
+
+	public CreditSearchEngin() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 	@FindBy(id = "amount")
