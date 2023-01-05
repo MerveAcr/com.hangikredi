@@ -45,6 +45,7 @@ public class KrediTest {
 		int randomNum = HelperMethods.generateRandomNumber(500, 100.000);
 		// olusturulan numarayi kredi tutari field ina gonder
 		searchEngin.krediTutariBox.sendKeys(String.valueOf(randomNum));
+		Thread.sleep(3000);
 		// 12 ay kredi vadesini sec
 		HelperMethods.selectByValue(searchEngin.krediVadesiBox, "12");
 		// hesapla butonu na tikla
