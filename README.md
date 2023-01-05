@@ -39,6 +39,7 @@
 	- proje yi yeniledikten sonra main directory de test-output klasorunun geldigini goruceksiniz. 
 	- index.html dosyasini tarayicida acarak test sonuclarini goruntuluyebilirsiniz.
 	- /src directory de fail olan test lerin screenshot larini test ismi ile gorebilirsiniz 
+![testReport](https://user-images.githubusercontent.com/96839001/210795006-c28c6e26-19c0-4fb8-b6a2-516e37a56493.PNG)
 
 ## .gitignore
 - localinizde kalmasini istediginiz, jar,test result gibi dosyalari .gitignore file ina ekleyerek remote repo nuzu gereksiz dosyalardan koruyabilirisiniz
